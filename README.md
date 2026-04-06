@@ -1,2 +1,24 @@
 # Holiday-Guide
-Holiday Guide is a Python-based travel recommendation system that provides personalized destination suggestions based on user preferences such as travel type, budget, and activities. The system is designed to simplify trip planning by offering curated recommendations, travel tips, and destination highlights. 
+from recommender import recommend_destination
+from utils import display_results
+
+def get_user_preferences():
+    print("🌍 Welcome to Holiday Guide\n")
+
+    travel_type = input("Enter preferred destination type (beach/mountain/city/nature): ").lower()
+    budget = input("Enter budget (low/medium/high): ").lower()
+    activity = input("Enter preferred activity (relaxation/adventure/culture/nightlife/snow): ").lower()
+
+    return {
+        "type": travel_type,
+        "budget": budget,
+        "activity": activity
+    }
+
+def main():
+    preferences = get_user_preferences()
+    results = recommend_destination(preferences)
+    display_results(results)
+
+if __name__ == "__main__":
+    main()
